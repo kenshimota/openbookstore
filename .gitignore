@@ -34,3 +34,6 @@
 
 # ignore fil lock
 Gemfile.lock
+
+# ignore vim files
+*.swp
