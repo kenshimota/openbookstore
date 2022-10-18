@@ -1,9 +1,16 @@
-class AuthorsController < ApplicationController
+class AuthorsController < ResourceProtectedUpdateController
   before_action :set_author, only: [:show, :edit, :update, :destroy]
 
   # GET /authors
   def index
-    @authors = Author.all
+    query = params_search
+
+    @authors = Author
+      .where("name LIKE ?", "%#{query[:search]}%")
+      .limit(query[:limit])
+      .offset(query[:offset])
+
+    render json: @authors
   end
 
   # GET /authors/1
