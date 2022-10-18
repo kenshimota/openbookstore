@@ -52,3 +52,5 @@ gem "rack-cors", "~> 1.1"
 gem "devise", "~> 4.8"
 
 gem "devise_token_auth", "~> 1.2"
+
+gem "faker", "~> 2.23"
